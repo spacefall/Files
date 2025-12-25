@@ -10,20 +10,6 @@
 name: Files CI
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'assets/**'
-      - 'builds/**'
-      - 'docs/**'
-      - '*.md'
-  pull_request:
-    paths-ignore:
-      - 'assets/**'
-      - 'builds/**'
-      - 'docs/**'
-      - '*.md'
   workflow_dispatch:
 
 run-name: ${{ github.event_name == 'pull_request' && 'Files PR Validation' || 'Files CI Validation' }}
@@ -48,7 +34,7 @@ jobs:
 
   check-formatting:
 
-    if: github.repository_owner == 'files-community'
+    #if: github.repository_owner == 'files-community'
 
     runs-on: windows-latest
 
@@ -84,7 +70,7 @@ jobs:
 
   build:
 
-    if: github.repository_owner == 'files-community'
+    #if: github.repository_owner == 'files-community'
 
     runs-on: windows-latest
     strategy:
@@ -179,7 +165,7 @@ jobs:
 
   test:
 
-    if: github.repository_owner == 'files-community' && always()
+    #if: github.repository_owner == 'files-community' && always()
 
     needs: [build]
     runs-on: windows-latest
