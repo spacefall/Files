@@ -24,6 +24,7 @@ on:
       - 'builds/**'
       - 'docs/**'
       - '*.md'
+  workflow_dispatch:
 
 run-name: ${{ github.event_name == 'pull_request' && 'Files PR Validation' || 'Files CI Validation' }}
 
